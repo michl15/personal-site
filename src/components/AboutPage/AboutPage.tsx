@@ -15,6 +15,7 @@ const AboutPage = () => {
         "React",
         "Typescript",
         "Javascript",
+        "Vite",
         "HTML",
         "CSS",
         "Jest",
@@ -29,7 +30,7 @@ const AboutPage = () => {
 
     const formatSkills = () => {
         return skills.map((skill, index) => (
-            <AnimationOnScroll animateIn="animate__zoomIn" delay={50 * index}>
+            <AnimationOnScroll animateIn="animate__zoomIn" delay={50 * index} key={`about-me-skill-${index}`}>
                 <Badge value={skill} className="m-1" size="large" />
             </AnimationOnScroll>
         ))
@@ -47,9 +48,9 @@ const AboutPage = () => {
                         <a href={resumeURL} download className="p-button p-button-outlined">Download my resume</a>
                     </div>
                     <Panel header="Skills" className="raleway-mlee">
-                        <p className="flex flex-wrap justify-center">
+                        <div className="flex flex-wrap justify-center">
                             {formatSkills()}
-                        </p>
+                        </div>
                     </Panel>
                 </Fieldset>
             </div>

@@ -11,6 +11,7 @@ import ExternalLinks from '../ExternalLinks';
 import ContactPage from '../ContactPage';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_PUBLIC_KEY } from '../../constants/constants';
+import { useEffect } from 'react';
 
 
 const MainPage = () => {
@@ -63,6 +64,10 @@ const MainPage = () => {
             throttle: 10000,
         },
     });
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <div>

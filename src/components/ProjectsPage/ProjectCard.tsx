@@ -17,13 +17,12 @@ type ProjectCardProps = {
 }
 
 const ProjectCard = ({ item }: ProjectCardProps) => {
-
     const toolsUsed = () => {
         return (
             <Panel header="Technologies Used" className="raleway-mlee">
                 <div className="flex flex-wrap justify-center">
                     {item.tools.map((tool, index) => (
-                        <AnimationOnScroll animateIn="animate__zoomIn" delay={50 * index}>
+                        <AnimationOnScroll animateIn="animate__zoomIn" delay={50 * index} key={`${tool}-${index}`}>
                             <Badge value={tool} className="m-1" size="large" />
                         </AnimationOnScroll>
                     ))}

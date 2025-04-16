@@ -17,7 +17,7 @@ const ProjectsPage = () => {
                 "Tailwind CSS",
                 "PrimeReact"
             ],
-            marker: <Badge size="normal" value={"✓"} />,
+            marker: <Badge size="normal" value={"✓"} key={"personal-marker"} />,
             subtitle: "Apr 2025",
             ghLink: "https://github.com/michl15/personal-site",
             link: ""
@@ -39,7 +39,7 @@ const ProjectsPage = () => {
                 "Firebase"
             ],
             subtitle: "Jan 2025 - present",
-            marker: <Badge severity={"warning"} size="normal" value={"!"} />,
+            marker: <Badge severity={"warning"} size="normal" value={"!"} key={"adv-marker"} />,
             ghLink: "https://github.com/michl15/adventurers-lodge",
             link: "https://adventurers-lodge.web.app/#/"
         },
@@ -57,7 +57,7 @@ const ProjectsPage = () => {
                 "React Router"
             ],
             subtitle: "Jan 2025",
-            marker: <Badge severity={"success"} size="normal" value={"✓"} />,
+            marker: <Badge severity={"success"} size="normal" value={"✓"} key={"fetch-marker"} />,
             ghLink: "https://github.com/michl15/fetch-dog-search",
             link: "https://michl15.github.io/fetch-dog-search/"
         }
@@ -68,8 +68,8 @@ const ProjectsPage = () => {
             <h1 className="flex text-5xl justify-center mb-10 mt-20">Personal Projects</h1>
             <Timeline
                 value={projects}
-                content={(item) => (<ProjectCard item={item} />)}
-                opposite={(item) => (item.opp && <Badge value={item.opp} severity={item.oppSeverity} />)}
+                content={(item) => (<ProjectCard item={item} key={item.title} />)}
+                opposite={(item) => (item.opp && <Badge value={item.opp} severity={item.oppSeverity} key={`opp-${item.title}`} />)}
                 align="alternate"
                 marker={(item) => item.marker}
                 className="flex justify-center" />

@@ -50,9 +50,9 @@ const WelcomePage = () => {
                 <p className="text-xl flex justify-center">
                     <img src={imageURL} className="animate__animated animate__fadeIn animate__zoomIn w-32 m-10" key={imageURL} />
                 </p>
-                <p className="text-xl flex justify-center">
+                <div className="text-xl flex justify-center">
                     <ExternalLinks size="large" />
-                </p>
+                </div>
             </div>
             <ProgressButton label="About Me" scrollToLoc="about-me" />
         </div>

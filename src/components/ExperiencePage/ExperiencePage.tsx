@@ -1,6 +1,7 @@
 import { Fieldset } from "primereact/fieldset";
 import { Panel } from "primereact/panel";
 import ProgressButton from "../ProgressButton";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 const ExperiencePage = () => {
     const intuitList = [
@@ -22,9 +23,9 @@ one-on-one meetings in order to ensure their continued improvement and success.`
         `Worked with the tech evangelist team to develop a proof of concept for an internal site called Tech @ Intuit, in order to highlight technical achievements within the programming and development spaces at Intuit and provide details on new areas of focus for the company.`
     ]
 
-    const renderList = (strList: string[]) => {
-        return strList.map((listItem) => (
-            <li>
+    const renderList = (strList: string[], key: string) => {
+        return strList.map((listItem, index) => (
+            <li key={`${key}-${index}`}>
                 <p>
                     {listItem}
                 </p>
@@ -36,44 +37,48 @@ one-on-one meetings in order to ensure their continued improvement and success.`
         <div id="work-experience" className="min-h-screen grid content-center raleway-mlee">
             <div className="m-10 flex justify-center mt-20">
                 <Fieldset className="max-w-4xl p-6 raleway-mlee" legend="Experience">
-                    <Panel className="max-w-4xl p-6 raleway-mlee" header={"2020-2024"}>
-                        <div className="flex divide-x-1 divide-solid">
-                            <div className="w-1/3 px-1 min-w-45">
-                                <h1 className="text-3xl">Software Engineer</h1>
-                                <br />
-                                <h2 className="text-xl justify-start">Intuit</h2>
-                                <h2 className="text-xl justify-start">San Diego, CA</h2>
+                    <AnimationOnScroll animateIn="animate__zoomIn" animateOnce>
+                        <Panel className="max-w-4xl p-6 raleway-mlee" header={"2020-2024"}>
+                            <div className="flex divide-x-1 divide-solid">
+                                <div className="w-1/3 px-1 min-w-45">
+                                    <h1 className="text-3xl">Software Engineer</h1>
+                                    <br />
+                                    <h2 className="text-xl justify-start">Intuit</h2>
+                                    <h2 className="text-xl justify-start">San Diego, CA</h2>
+                                </div>
+                                <div className="w-2/3 pl-5">
+                                    <p>
+                                        Developed and maintained customer-facing features within <a className="text-sky-300" href="https://turbotax.intuit.com/personal-taxes/online/live/how-it-works.htm" target="_">TurboTax Live</a> using React.js, JavaScript, CSS, and Typescript.
+                                    </p>
+                                    <br />
+                                    <ul className="pl-10 list-disc">
+                                        {renderList(intuitList, "intuit")}
+                                    </ul>
+                                </div>
                             </div>
-                            <div className="w-2/3 pl-5">
-                                <p>
-                                    Developed and maintained customer-facing features within <a className="text-sky-300" href="https://turbotax.intuit.com/personal-taxes/online/live/how-it-works.htm" target="_">TurboTax Live</a> using React.js, JavaScript, CSS, and Typescript.
-                                </p>
-                                <br />
-                                <ul className="pl-10 list-disc">
-                                    {renderList(intuitList)}
-                                </ul>
+                        </Panel>
+                    </AnimationOnScroll>
+                    <AnimationOnScroll animateIn="animate__zoomIn" animateOnce>
+                        <Panel className="max-w-4xl p-6 raleway-mlee" header={"2019"}>
+                            <div className="flex divide-x-1 divide-solid">
+                                <div className="w-1/3 px-1 min-w-45">
+                                    <h1 className="text-3xl">Software Engineering Intern</h1>
+                                    <br />
+                                    <h2 className="text-xl justify-start">Intuit</h2>
+                                    <h2 className="text-xl justify-start">San Diego, CA</h2>
+                                </div>
+                                <div className="w-2/3 pl-5">
+                                    <p>
+                                        Trained with scrum team to develop skills in front-end programming and Agile development.
+                                    </p>
+                                    <br />
+                                    <ul className="pl-10 list-disc">
+                                        {renderList(internList, "intern")}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </Panel>
-                    <Panel className="max-w-4xl p-6 raleway-mlee" header={"2019"}>
-                        <div className="flex divide-x-1 divide-solid">
-                            <div className="w-1/3 px-1 min-w-45">
-                                <h1 className="text-3xl">Software Engineering Intern</h1>
-                                <br />
-                                <h2 className="text-xl justify-start">Intuit</h2>
-                                <h2 className="text-xl justify-start">San Diego, CA</h2>
-                            </div>
-                            <div className="w-2/3 pl-5">
-                                <p>
-                                    Trained with scrum team to develop skills in front-end programming and Agile development.
-                                </p>
-                                <br />
-                                <ul className="pl-10 list-disc">
-                                    {renderList(internList)}
-                                </ul>
-                            </div>
-                        </div>
-                    </Panel>
+                        </Panel>
+                    </AnimationOnScroll>
                 </Fieldset>
             </div>
             <ProgressButton label="Education" scrollToLoc="education" />

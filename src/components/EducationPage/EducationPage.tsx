@@ -2,6 +2,7 @@ import { Badge } from "primereact/badge";
 import { Fieldset } from "primereact/fieldset";
 import { Panel } from "primereact/panel";
 import ProgressButton from "../ProgressButton";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 const EducationPage = () => {
     const uciList = [
@@ -15,9 +16,9 @@ const EducationPage = () => {
         `Deploying and scaling applications using Cloud Native methodologies and tools like Containers, Kubernetes, Microservices and Serverless Functions`
     ]
 
-    const renderBullets = (strList: string[]) => {
-        return strList.map((str) => (
-            <li>
+    const renderBullets = (strList: string[], key: string) => {
+        return strList.map((str, index) => (
+            <li key={`${key}-${index}`}>
                 <p>{str}</p>
             </li>
         ))
@@ -28,38 +29,42 @@ const EducationPage = () => {
         <div id="education" className="min-h-screen grid content-center raleway-mlee ">
             <div className="m-10 flex justify-center mt-20">
                 <Fieldset className="max-w-4xl p-6 raleway-mlee" legend="Education">
-                    <Panel className="max-w-4xl p-6 raleway-mlee" header={<><span className="mr-2">2025</span><Badge value="In Progress" severity={"warning"} /></>}>
-                        <div className="flex divide-x-1 divide-solid">
-                            <div className="w-1/3 px-1 min-w-45">
-                                <h1 className="text-3xl">IBM Full Stack Software Developer Certification</h1>
-                                <br />
-                                <h2 className="text-xl justify-start">Coursera</h2>
+                    <AnimationOnScroll animateIn="animate__zoomIn" animateOnce>
+                        <Panel className="max-w-4xl p-6 raleway-mlee" header={<><span className="mr-2">2025</span><Badge value="In Progress" severity={"warning"} /></>}>
+                            <div className="flex divide-x-1 divide-solid">
+                                <div className="w-1/3 px-1 min-w-45">
+                                    <h1 className="text-3xl">IBM Full Stack Software Developer Certification</h1>
+                                    <br />
+                                    <h2 className="text-xl justify-start">Coursera</h2>
+                                </div>
+                                <div className="w-2/3 pl-5">
+                                    <ul className="pl-4 list-disc">
+                                        {renderBullets(fullStackList, "fullstack")}
+                                    </ul>
+                                    <br />
+                                    <p className="flex justify-end">
+                                        <a href="https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer" target="_" className="text-sky-300 mr-3">More details →</a>
+                                    </p>
+                                </div>
                             </div>
-                            <div className="w-2/3 pl-5">
-                                <ul className="pl-4 list-disc">
-                                    {renderBullets(fullStackList)}
-                                </ul>
-                                <br />
-                                <p className="flex justify-end">
-                                    <a href="https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer" target="_" className="text-sky-300 mr-3">More details →</a>
-                                </p>
+                        </Panel>
+                    </AnimationOnScroll>
+                    <AnimationOnScroll animateIn="animate__zoomIn" animateOnce>
+                        <Panel className="max-w-4xl p-6 raleway-mlee" header={"2020-2024"}>
+                            <div className="flex divide-x-1 divide-solid">
+                                <div className="w-1/3 px-1 min-w-45">
+                                    <h1 className="text-3xl">B.S. in Computer Science</h1>
+                                    <br />
+                                    <h2 className="text-xl justify-start">University of California, Irvine</h2>
+                                </div>
+                                <div className="w-2/3 pl-5">
+                                    <ul className="pl-4 list-disc">
+                                        {renderBullets(uciList, "uci")}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </Panel>
-                    <Panel className="max-w-4xl p-6 raleway-mlee" header={"2020-2024"}>
-                        <div className="flex divide-x-1 divide-solid">
-                            <div className="w-1/3 px-1 min-w-45">
-                                <h1 className="text-3xl">B.S. in Computer Science</h1>
-                                <br />
-                                <h2 className="text-xl justify-start">University of California, Irvine</h2>
-                            </div>
-                            <div className="w-2/3 pl-5">
-                                <ul className="pl-4 list-disc">
-                                    {renderBullets(uciList)}
-                                </ul>
-                            </div>
-                        </div>
-                    </Panel>
+                        </Panel>
+                    </AnimationOnScroll>
                 </Fieldset>
             </div>
             <ProgressButton label="Projects" scrollToLoc="projects" />

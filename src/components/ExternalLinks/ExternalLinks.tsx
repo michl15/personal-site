@@ -13,11 +13,11 @@ const ExternalLinks = ({ size }: ExternalLinksProps) => {
     const imgSizes = () => {
         switch (size) {
             case 'large':
-                return "w-12 h-12";
+                return "w-auto h-12";
             case 'small':
-                return "w-3 h-3";
+                return "w-auto h-3";
             default:
-                return "w-6 h-6";
+                return "w-auto h-6";
         }
     }
 
