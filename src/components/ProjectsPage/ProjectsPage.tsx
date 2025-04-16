@@ -18,10 +18,12 @@ const ProjectsPage = () => {
                 "PrimeReact"
             ],
             marker: <Badge size="normal" value={"✓"} />,
-            subtitle: "Apr 2025"
+            subtitle: "Apr 2025",
+            ghLink: "https://github.com/michl15/personal-site",
+            link: ""
         },
         {
-            title: "Adventurer's Lodge",
+            title: "Adventurer's Lodge 🔗",
             opp: "Work In Progress",
             oppSeverity: "warning",
             desc: "Web application for creating and managing DnD characters, campaigns, and more.",
@@ -31,20 +33,33 @@ const ProjectsPage = () => {
                 "React Bootstrap",
                 "Typescript",
                 "React Redux",
+                "React Router",
+                "GraphQL",
+                "RESTful APIs",
                 "Firebase"
             ],
             subtitle: "Jan 2025 - present",
-            marker: <Badge severity={"warning"} size="normal" value={"!"} />
+            marker: <Badge severity={"warning"} size="normal" value={"!"} />,
+            ghLink: "https://github.com/michl15/adventurers-lodge",
+            link: "https://adventurers-lodge.web.app/#/"
         },
         {
-            title: "Fetch",
+            title: "Fetch 🔗",
             opp: "Complete",
             oppSeverity: "success",
-            desc: "",
-            tools: [],
+            desc: "Web application developed for a coding assessment.",
+            tools: [
+                "React",
+                "Javascript",
+                "Github Pages",
+                "React Bootstrap",
+                "RESTful APIs",
+                "React Router"
+            ],
             subtitle: "Jan 2025",
             marker: <Badge severity={"success"} size="normal" value={"✓"} />,
-
+            ghLink: "https://github.com/michl15/fetch-dog-search",
+            link: "https://michl15.github.io/fetch-dog-search/"
         }
     ]
 
@@ -58,7 +73,7 @@ const ProjectsPage = () => {
                 align="alternate"
                 marker={(item) => item.marker}
                 className="flex justify-center" />
-            <ProgressButton label="Contact" scrollToLoc="contact" />
+            <ProgressButton label="Contact" scrollToLoc="contact-form" />
         </div>
     )
 }
