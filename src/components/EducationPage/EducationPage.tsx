@@ -1,4 +1,3 @@
-import { Badge } from "primereact/badge";
 import { Fieldset } from "primereact/fieldset";
 import { Panel } from "primereact/panel";
 import ProgressButton from "../ProgressButton";
@@ -30,7 +29,7 @@ const EducationPage = () => {
             <div className="m-10 flex justify-center mt-20">
                 <Fieldset className="max-w-4xl p-6 raleway-mlee" legend="Education">
                     <AnimationOnScroll animateIn="animate__zoomIn" animateOnce>
-                        <Panel className="max-w-4xl p-6 raleway-mlee" header={<><span className="mr-2">2025</span><Badge value="In Progress" severity={"warning"} /></>}>
+                        <Panel className="max-w-4xl p-6 raleway-mlee" header={"2025"}>
                             <div className="flex divide-x-1 divide-solid">
                                 <div className="w-1/3 px-1 min-w-45">
                                     <h1 className="text-3xl">IBM Full Stack Software Developer Certification</h1>
